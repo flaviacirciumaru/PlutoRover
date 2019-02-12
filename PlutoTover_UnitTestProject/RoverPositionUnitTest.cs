@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace PlutoTover_UnitTestProject
 {
     [TestClass]
-    public class UnitTest1
+    public class RoverPositionUnitTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Move()
         {
         }
     }
