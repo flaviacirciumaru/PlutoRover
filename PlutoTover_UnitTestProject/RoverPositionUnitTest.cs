@@ -87,5 +87,29 @@ namespace PlutoTover_UnitTestProject
             Position currentPosition = rover.CurrentPosition;
             Position expectedPosition = new Position(0, 0, 'N');
         }
+
+        [TestMethod]
+        public void Move_MultipleCommands_NoObstacles()
+        {
+            /* planet info */
+            /* the position of the obstacles is not important at this point */
+            List<KeyValuePair<int, int>> obstaclePositions = null;
+            Grid grid = new Grid(3, 3, obstaclePositions);
+
+            /* rover info */
+            Position initialPosition = new Position(0, 0, 'N');
+            Rover rover = new Rover(initialPosition, grid);
+
+            String commands = "FFRFF";
+            foreach (char command in commands)
+            {
+                rover.Move(command);
+            }
+
+            Position currentPosition = rover.CurrentPosition;
+            Position expectedPosition = new Position(2, 2, 'E');
+
+            Assert.AreEqual(expectedPosition, currentPosition);
+        }
     }
 }
