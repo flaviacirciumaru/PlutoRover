@@ -25,5 +25,24 @@ namespace PlutoTover_UnitTestProject
 
             Assert.AreEqual(expectedPosition, currentPositon);
         }
+
+        [TestMethod]
+        public void Move_RotateRight()
+        {
+            /* planet info*/
+            /* the position of the obstacles is not important at this point*/
+            List<KeyValuePair<int, int>> obstaclePositions = null;
+            Grid grid = new Grid(3, 3, obstaclePositions);
+
+            /* rover info */
+            Position initialPosition = new Position(0, 0, 'N');
+            Rover rover = new Rover(initialPosition, grid);
+            rover.Move('R');
+
+            Position currentPosition = rover.CurrentPosition;
+            Position expectedPosition = new Position(0, 0, 'E');
+
+            Assert.AreEqual(expectedPosition, currentPosition);
+        }
     }
 }
