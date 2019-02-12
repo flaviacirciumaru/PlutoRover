@@ -8,6 +8,7 @@ namespace PlutoTover_UnitTestProject
         private Grid grid;
 
         private static bool noObstaclesFoundYet = true;
+        private static Position copyOfCurrentPosition;
 
         public Rover(Position newPosition, Grid grid)
         {
@@ -54,22 +55,178 @@ namespace PlutoTover_UnitTestProject
 
         private void FindNewPositionFacingWest(char singleCommand)
         {
-            throw new NotImplementedException();
+            copyOfCurrentPosition = new Position(currentPosition); //remember last position without obstacles
+
+            switch (singleCommand)
+            {
+                case 'F':
+                    {
+                        /* when the rover is on the first column of the grid, facing
+                         * west and it needs to go forward, the x coordinate
+                         * of the rover is reset to the last column of the grid */
+                        if (currentPosition.XCoordinate == 0)
+                        {
+                            currentPosition.XCoordinate = Grid.NumberOfColumns - 1;
+                        }
+                        else
+                            currentPosition.XCoordinate--;
+                        break;
+                    }
+                case 'B':
+                    {/* when the rover is on the last column of the grid, facing
+                         * west and it needs to go backwards, the x coordinate
+                         * of the rover is reset to the first column of the grid */
+                        if (currentPosition.XCoordinate == Grid.NumberOfColumns - 1)
+                            currentPosition.XCoordinate = 0;
+                        else
+                            currentPosition.XCoordinate++;
+                        break;
+                    }
+                case 'L':
+                    {
+                        currentPosition.Orientation = 'S';
+                        break;
+                    }
+                case 'R':
+                    {
+                        currentPosition.Orientation = 'N';
+                        break;
+                    }
+            }
         }
 
         private void FindeNewPositionFacingEast(char singleCommand)
         {
-            throw new NotImplementedException();
+            copyOfCurrentPosition = new Position(currentPosition); //remember last position without obstacles
+
+            switch (singleCommand)
+            {
+                case 'F':
+                    {
+                        /* when the rover is on the last column of the grid, facing
+                         * east and it needs to go backwards, the x coordinate
+                         * of the rover is reset to the first column of the grid */
+                        if (currentPosition.XCoordinate == Grid.NumberOfColumns - 1)
+                        {
+                            currentPosition.XCoordinate = 0;
+                        }
+                        else
+                            currentPosition.XCoordinate++;
+                        break;
+                    }
+                case 'B':
+                    {
+                        /* when the rover is on the first column of the grid, facing
+                         * east and it needs to go backwards, the x coordinate
+                         * of the rover is reset to the last column of the grid */
+                        if (currentPosition.XCoordinate == 0)
+                        {
+                            currentPosition.XCoordinate = Grid.NumberOfColumns - 1;
+                        }
+                        else
+                            currentPosition.XCoordinate--;
+                        break;
+                    }
+                case 'L':
+                    {
+                        currentPosition.Orientation = 'N';
+                        break;
+                    }
+                case 'R':
+                    {
+                        currentPosition.Orientation = 'S';
+                        break;
+                    }
+            }
         }
 
         private void FindNewPositionFacingSouth(char singleCommand)
         {
-            throw new NotImplementedException();
+            copyOfCurrentPosition = new Position(currentPosition); //remember last position without obstacles
+            switch (singleCommand)
+            {
+                case 'F':
+                    {
+                        /* when the rover is on the first line of the grid, facing
+                         * south and it needs to go forward, the y coordinate
+                         * of the rover is reset to the last line of the grid */
+                        if (currentPosition.YCoordinate == 0)
+                        {
+                            currentPosition.YCoordinate = Grid.NumberOfLines - 1;
+                        }
+                        else
+                            currentPosition.YCoordinate--;
+                        break;
+                    }
+                case 'B':
+                    {
+                        /* when the rover is on the last line of the grid, facing
+                         * south and it needs to go backwards, the y coordinate
+                         * of the rover is reset to the first line of the grid */
+                        if (currentPosition.YCoordinate == Grid.NumberOfLines - 1)
+                        {
+                            currentPosition.YCoordinate = 0;
+                        }
+                        else
+                            currentPosition.YCoordinate++;
+                        break;
+                    }
+                case 'L':
+                    {
+                        currentPosition.Orientation = 'E'; ;
+                        break;
+                    }
+                case 'R':
+                    {
+                        currentPosition.Orientation = 'W';
+                        break;
+                    }
+            }
         }
 
         private void FindNewPositionFacingNorth(char singleCommand)
         {
-            throw new NotImplementedException();
+            copyOfCurrentPosition = new Position(currentPosition); //remember last position without obstacles
+
+            switch (singleCommand)
+            {
+                case 'F':
+                    {
+                        /* when the rover is on the last line of the grid, facing
+                         north and it needs to go forward, the y coordinate
+                         of the rover is reset to 0 */
+                        if (currentPosition.YCoordinate == Grid.NumberOfLines - 1)
+                        {
+                            currentPosition.YCoordinate = 0;
+                        }
+                        else
+                            currentPosition.YCoordinate++;
+                        break;
+                    }
+                case 'B':
+                    {
+                        /* when the rover is on the first line of the grid, facing
+                         * north and it needs to go backwards, the y coordinate
+                         * of the rover is reset to the last line of the grid */
+                        if (currentPosition.YCoordinate == 0)
+                        {
+                            currentPosition.YCoordinate = Grid.NumberOfLines - 1;
+                        }
+                        else
+                            currentPosition.YCoordinate--;
+                        break;
+                    }
+                case 'L':
+                    {
+                        currentPosition.Orientation = 'W';
+                        break;
+                    }
+                case 'R':
+                    {
+                        currentPosition.Orientation = 'E';
+                        break;
+                    }
+            }
         }
 
         private void VerifyIfCommandHasValidLetter(char singleCommand)
