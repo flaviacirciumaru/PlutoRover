@@ -111,5 +111,34 @@ namespace PlutoTover_UnitTestProject
 
             Assert.AreEqual(expectedPosition, currentPosition);
         }
+
+        [TestMethod]
+        public void Move_MultipleCommands_WithObstacles()
+        {
+            /* planet info */
+            var obstaclePositions = new List<KeyValuePair<int, int>>(){
+                new KeyValuePair<int, int>(2, 2),
+            };
+            Grid grid = new Grid(3, 3, obstaclePositions);
+
+            /* rover info*/
+            Position initialPosition = new Position(0, 0, 'N');
+            Rover rover = new Rover(initialPosition, grid);
+
+            String commands = "FFRFF";
+            foreach (char command in commands)
+            {
+                rover.Move(command);
+                /* no need to move follow further commands
+                 * if there ia an obstacle ahead */
+                if (rover.NoObstaclesFoundYet == false)
+                    break;
+            }
+
+            Position currentPosition = rover.CurrentPosition;
+            Position expectedPosition = new Position(1, 2, 'E');
+
+            Assert.AreEqual(expectedPosition, currentPosition);
+        }
     }
 }
