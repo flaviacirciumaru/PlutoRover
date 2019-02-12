@@ -1,4 +1,6 @@
-﻿namespace PlutoTover_UnitTestProject
+﻿using System;
+
+namespace PlutoTover_UnitTestProject
 {
     internal class Rover
     {
@@ -15,5 +17,9 @@
         internal Position CurrentPosition { get => currentPosition; set => currentPosition = value; } 
         internal Grid Grid { get => grid; set => grid = value; }
 
+        internal void Move(char v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
