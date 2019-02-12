@@ -20,7 +20,7 @@ namespace PlutoTover_UnitTestProject
         
         internal Position CurrentPosition { get => currentPosition; set => currentPosition = value; } 
         internal Grid Grid { get => grid; set => grid = value; }
-        public static bool NoObstaclesFoundYet { get => noObstaclesFoundYet; set => noObstaclesFoundYet = value; }
+        public bool NoObstaclesFoundYet { get => noObstaclesFoundYet; set => noObstaclesFoundYet = value; }
 
         internal void Move(char singleCommand)
         {
