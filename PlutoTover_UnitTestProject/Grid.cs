@@ -4,15 +4,20 @@ namespace PlutoTover_UnitTestProject
 {
     internal class Grid
     {
-        private int v1;
-        private int v2;
-        private List<KeyValuePair<int, int>> obstaclesPostion;
+        private int numberOfLines;
+        private int numberofColumns;
+        private readonly List<KeyValuePair<int, int>> obstaclesPostion;
 
-        public Grid(int v1, int v2, List<KeyValuePair<int, int>> obstaclesPostion)
+        public Grid(int numberOfLines, int numberOfColumns, List<KeyValuePair<int, int>> obstaclesPostion)
         {
-            this.v1 = v1;
-            this.v2 = v2;
+            this.numberOfLines = numberOfLines;
+            this.NumberofColumns = numberofColumns;
             this.obstaclesPostion = obstaclesPostion;
         }
+
+        public int NumberOfLines { get => numberOfLines; set => numberOfLines = value; }
+        public int NumberofColumns { get => numberofColumns; set => numberofColumns = value; }
+
+        public List<KeyValuePair<int, int>> ObstaclesPostion => obstaclesPostion;
     }
 }
