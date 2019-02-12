@@ -10,10 +10,13 @@ namespace PlutoTover_UnitTestProject
         [TestMethod]
         public void Move_Forward_NoEdge()
         {
-            /*planet info*/
-            /*the position of the obstacles is not important at this point*/
+            /* planet info*/
+            /* the position of the obstacles is not important at this point*/
             List<KeyValuePair<int, int>> obstaclesPostion = null;
             Grid grid = new Grid(3, 3, obstaclesPostion);
+
+            /* rover info */
+            Position initialPosition = new Position(0, 0, 'N');
         }
     }
 }
