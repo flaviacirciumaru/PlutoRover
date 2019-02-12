@@ -17,6 +17,7 @@ namespace PlutoTover_UnitTestProject
 
             /* rover info */
             Position initialPosition = new Position(0, 0, 'N');
+            Rover rover = new Rover(initialPosition, grid);
         }
     }
 }

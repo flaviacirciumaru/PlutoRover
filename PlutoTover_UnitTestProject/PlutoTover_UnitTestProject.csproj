@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Grid.cs" />
     <Compile Include="Position.cs" />
+    <Compile Include="Rover.cs" />
     <Compile Include="RoverPositionUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
