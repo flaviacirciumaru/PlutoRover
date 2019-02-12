@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PlutoTover_UnitTestProject
 {
@@ -92,6 +93,22 @@ namespace PlutoTover_UnitTestProject
                         currentPosition.Orientation = 'N';
                         break;
                     }
+            }
+
+            if (Grid.ObstaclesPostion != null) {
+                var pairOfcurrentCoordinates = new KeyValuePair<int, int>(
+                                    currentPosition.XCoordinate,
+                                    currentPosition.YCoordinate);
+
+                foreach (var obstacle in Grid.ObstaclesPostion)
+                {
+                    if (Equals(pairOfcurrentCoordinates, obstacle))
+                    {
+                        currentPosition = copyOfCurrentPosition;
+                        noObstaclesFoundYet = false;
+                        break;
+                    }
+                }
             }
         }
 

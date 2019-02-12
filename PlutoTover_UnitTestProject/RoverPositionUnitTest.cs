@@ -64,5 +64,28 @@ namespace PlutoTover_UnitTestProject
 
             Assert.AreEqual(expectedPosition, currentPosition);
         }
+
+        [TestMethod]
+        public void Move_RetreatIfObstacleFound()
+        {
+            /* planet info */
+            /* Obstacles are represented by pairs of coordinates.
+             * The (x, y) of the obstacle whould be avoided by the
+             * rover by retreating to the last valid position. */
+            var obstaclesPosition = new List<KeyValuePair<int, int>>()
+            {
+                new KeyValuePair<int, int>(0, 1),
+                new KeyValuePair<int, int>(2, 2),
+            };
+            Grid grid = new Grid(4, 4, obstaclesPosition);
+
+            /* rover info*/
+            Position initialPosition = new Position(0, 0, 'N');
+            Rover rover = new Rover(initialPosition, grid);
+            rover.Move('F');
+
+            Position currentPosition = rover.CurrentPosition;
+            Position expectedPosition = new Position(0, 0, 'N');
+        }
     }
 }
