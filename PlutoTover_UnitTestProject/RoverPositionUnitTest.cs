@@ -19,6 +19,11 @@ namespace PlutoTover_UnitTestProject
             Position initialPosition = new Position(0, 0, 'N');
             Rover rover = new Rover(initialPosition, grid);
             rover.Move('F');
+
+            Position currentPositon = rover.CurrentPosition;
+            Position expectedPosition = new Position(0, 1, 'N');
+
+            Assert.AreEqual(expectedPosition, currentPositon);
         }
     }
 }
