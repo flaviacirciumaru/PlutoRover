@@ -2,13 +2,18 @@
 {
     internal class Rover
     {
-        private Position initialPosition;
+        private Position currentPosition;
         private Grid grid;
 
-        public Rover(Position initialPosition, Grid grid)
+        public Rover(Position newPosition, Grid grid)
         {
-            this.initialPosition = initialPosition;
-            this.grid = grid;
+            CurrentPosition = newPosition;
+            Grid = grid;
         }
+
+        
+        internal Position CurrentPosition { get => currentPosition; set => currentPosition = value; } 
+        internal Grid Grid { get => grid; set => grid = value; }
+
     }
 }
